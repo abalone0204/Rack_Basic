@@ -13,7 +13,7 @@ spec.add_runtime_dependency "rack"
 
 - And then implement the simplemvc.rb.
 
-```rb simplemvc.rb 
+```rb
 require "simplemvc/version"
 
 module Simplemvc
@@ -42,7 +42,7 @@ gem "simplemvc", path: "../simplemvc"
 
 - Then we set the `config.ru` in oreder to boot up our blog app by rack.
 
-```rb config.ru 
+```rb
 require './config/application.rb'
 
 run Blog::Application.new
