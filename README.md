@@ -111,6 +111,12 @@ module Blog
 end
 ```
 
+- But now if we go to the route '/' will occur error, we can fix it by do this in simplemvc.rb:
 
+```rb
+      if env["PATH_INFO"] == "/"
+        return [302, {"Location" => "/pages/about"}, []]
+      end
+```
 
 
