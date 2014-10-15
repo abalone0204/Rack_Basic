@@ -27,6 +27,7 @@ end
 ```
 
 - run `gem build simplemvc.gemspec`
+
 - Now we can using our gem 
 
 - create a directory, in there, blog, then set the Gemfile.
