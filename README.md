@@ -228,4 +228,7 @@ end
 
 - And `capitalize` in simplemvc.rb to `to_camel_case`
 
-- Then it works. We now following the naming convention in Rails
+- Then it works. We now following the naming convention in Rails.
+
+--------------------
+
