@@ -232,3 +232,80 @@ end
 
 --------------------
 
+## Auto Class loding
+
+- If we add the new controller, everytime we must require it in the application.rb
+
+```rb  
+require 'simplemvc'
+$LOAD_PATH << File.join(File.dirname(__FILE__), "..", "app", "controllers")
+require 'my_pages_controller' # Like this
+module Blog
+  class Application < Simplemvc::Application
+    
+  end
+end
+```
+
+- We must solve this. First we remvoe the `require 'my_pages_controller'` in application.rb
+
+- Method missing in ruby:
+
+- If we open pry and input: `Object.const_get(Erubis), we got NameError
+
+```rb  
+class Object
+  def self.const_missing(const)
+    require const.to_s.downcase
+    const
+  end
+end
+```
+
+```rb  
+Object.const_get(Erubis) #=> Erubis
+```
+
+
+- By adding the missing method to Object class, we now can require it automatically
+
+- Now, create a dependencies.rb in simplemvc/lib/simplemvc/, and require it in the simplemvc.rb
+
+> Rails Active Support Source code
+
+```rb
+class Object
+  def self.const_missing(const)
+    require const.to_s.to_snake_case
+    Object.const_get(const)  
+  end
+end
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
