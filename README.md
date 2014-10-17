@@ -271,16 +271,20 @@ Object.const_get(Erubis) #=> Erubis
 
 - Now, create a dependencies.rb in simplemvc/lib/simplemvc/, and require it in the simplemvc.rb
 
-> Rails Active Support Source code
-
 ```rb
 class Object
   def self.const_missing(const)
-    require const.to_s.to_snake_case
+    require const.to_s.to_snake_case # remember to use to_snake_case
     Object.const_get(const)  
   end
 end
 ```
+
+> To learn more, you can read:
+> Rails Active Support Source code
+
+
+-------------
 
 
 
